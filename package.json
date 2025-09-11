@@ -1,0 +1,46 @@
+{
+  "name": "leetcode-javascript",
+  "version": "1.0.0",
+  "description": "🚀 Complete LeetCode solutions in JavaScript with comprehensive test cases and detailed explanations",
+  "main": "run.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "run": "node run.js",
+    "update-progress": "node update-progress.js",
+    "commit": "node commit-solution.js",
+    "lint": "echo 'Add ESLint later'",
+    "format": "echo 'Add Prettier later'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/leetcode-javascript.git"
+  },
+  "keywords": [
+    "leetcode",
+    "javascript",
+    "algorithms",
+    "data-structures",
+    "coding-interview",
+    "programming",
+    "solutions",
+    "competitive-programming"
+  ],
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://yourportfolio.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/leetcode-javascript/issues"
+  },
+  "homepage": "https://github.com/yourusername/leetcode-javascript#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
