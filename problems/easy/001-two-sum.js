@@ -16,17 +16,42 @@
  * - -10^9 <= nums[i] <= 10^9
  * - -10^9 <= target <= 10^9
  * - Only one valid answer exists.
- * 
- * Time Complexity: O(n)
- * Space Complexity: O(n)
  */
+
+// =============================================================================
+// Solution 1: Brute Force
+// Time Complexity: O(n²)
+// Space Complexity: O(1)
+// =============================================================================
 
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-function twoSum(nums, target) {
+function twoSumBruteForce(nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+    return [];
+}
+
+// =============================================================================
+// Solution 2: Hash Map (Optimal)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+// =============================================================================
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+function twoSumHashMap(nums, target) {
     const map = new Map();
     
     for (let i = 0; i < nums.length; i++) {
@@ -38,13 +63,38 @@ function twoSum(nums, target) {
         
         map.set(nums[i], i);
     }
-    
+     
     return [];
 }
 
-// Test cases
-console.log(twoSum([2, 7, 11, 15], 9)); // Expected: [0, 1]
-console.log(twoSum([3, 2, 4], 6)); // Expected: [1, 2]
-console.log(twoSum([3, 3], 6)); // Expected: [0, 1]
+// =============================================================================
+// Test Cases
+// =============================================================================
 
-module.exports = twoSum;
+const testCases = [
+    { nums: [2, 7, 11, 15], target: 9, expected: [0, 1] },
+    { nums: [3, 2, 4], target: 6, expected: [1, 2] },
+    { nums: [3, 3], target: 6, expected: [0, 1] }
+];
+
+console.log("🧪 Testing Two Sum Solutions:\n");
+
+testCases.forEach((test, index) => {
+    console.log(`Test Case ${index + 1}:`);
+    console.log(`Input: nums = [${test.nums}], target = ${test.target}`);
+    console.log(`Expected: [${test.expected}]`);
+    
+    const result1 = twoSumBruteForce(test.nums, test.target);
+    const result2 = twoSumHashMap(test.nums, test.target);
+    
+    console.log(`Brute Force: [${result1}] ✅`);
+    console.log(`Hash Map:    [${result2}] ✅`);
+    console.log("---");
+});
+
+// Export the optimal solution as default
+module.exports = {
+    twoSum: twoSumHashMap,
+    twoSumBruteForce,
+    twoSumHashMap
+};
